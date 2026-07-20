@@ -16,7 +16,7 @@ execute (Divw rd rs1 rs2) = do
   y <- getRegister rs2
   let a = s32 x
       b = s32 y
-      q | a == -2147483648 && b == -1 = a
+      q | a == minSigned32 && b == -1 = a
         | b == 0 = -1
         | otherwise = quot a b
     in setRegister rd (s32 q)
@@ -33,7 +33,7 @@ execute (Remw rd rs1 rs2) = do
   y <- getRegister rs2
   let a = s32 x
       b = s32 y
-      r | a == -2147483648 && b == -1 = 0
+      r | a == minSigned32 && b == -1 = 0
         | b == 0 = a
         | otherwise = rem a b
     in setRegister rd (s32 r)
