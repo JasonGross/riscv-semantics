@@ -29,7 +29,7 @@ u32 n = (fromIntegral:: Word32 -> t) ((fromIntegral:: t -> Word32) n)
 -- | INT32_MIN, the signed-overflow operand of the RV64 W-form
 -- divisions/remainders (after truncation to 32 bits).
 minSigned32 :: forall t. (Integral t) => t
-minSigned32 = -2147483648
+minSigned32 = - 2^31
 {-# INLINE minSigned32 #-}
 
 lower :: forall a b. (Bits a, Integral a, Num b) => Int -> a -> b
